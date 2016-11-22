@@ -1,0 +1,33 @@
+{
+    "require": {
+        "silex/silex": "~2.0",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "saxulum/config-service-provider": "^2.0",
+        "doctrine/dbal": "^2.5"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App",
+            "AppTest\\": "tests/App"
+        }
+    },
+    "extra": {
+        "incenteev-parameters": {
+            "file": "app/config/config.yml",
+            "dist-file": "app/config/config.yml.dist",
+            "keep-outdated": true,
+            "parameter-key": "config"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": ["php build.php"]
+    }
+}
